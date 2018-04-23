@@ -8,10 +8,8 @@ VScode 에서 sass를 사용하려면 sass, Live sass compiler 두개의 플러�
 
 - [sass](https://marketplace.visualstudio.com/items?itemName=robinbentley.sass-indented)
 - [Live sass compliler](https://marketplace.visualstudio.com/items?itemName=ritwickdey.live-sass)
-<div style="margin-top:20px; text-align:center;" >	
-<img src="https://robinbentley.gallerycdn.vsassets.io/extensions/robinbentley/sass-indented/1.4.9/1523787844290/Microsoft.VisualStudio.Services.Icons.Default" style="width:50px; height:50px; margin-right:10px;">
-<img src="https://ritwickdey.gallerycdn.vsassets.io/extensions/ritwickdey/live-sass/1.3.0/1518981325878/Microsoft.VisualStudio.Services.Icons.Default" style="width:50px; height:50px;">
-</div>
+
+![SASS](https://ritwickdey.gallerycdn.vsassets.io/extensions/ritwickdey/live-sass/1.3.0/1518981325878/Microsoft.VisualStudio.Services.Icons.Default){: width="50" height="50")
 
 ### 2. jquery ###
 
