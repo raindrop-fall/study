@@ -1,0 +1,35 @@
+// common..
+$color1 : #000; //  $변수선언 : 반복적으로 많이 사용되는 부분 ex) font style, color....
+$color2 : #4267b2;
+$color3 : #fff;
+
+$font-size : 62.5%;
+$font-style : "맑은 고딕","Malgun Gothic",'돋움',Dotum,AppleGothic,Tahoma,Helvetica,sans-serif;
+
+$font-s1 : 1.4rem;
+$font-s2 : 2.0rem;
+
+@mixin box-style($bg) { // mixins : 브라우져별 접두사를 처리하거나 반복적인 속성을 처리
+    position:relative; 
+    background:$color1;
+    min-height:100%;
+    color:$color3;
+    font-size:$font-s2;
+}
+
+@mixin trans-style() {
+
+}
+
+// style
+html {font-size:$font-size;}
+body { background:$color1; color:$color3; font-size:$font-s1; }
+
+.scene-1 { 
+    @include box-style($color1);
+    
+}
+.scene-2 { 
+    @include box-style($color2);
+
+}

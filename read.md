@@ -11,14 +11,13 @@ VScode 에서 sass를 사용하려면 sass, Live sass compiler 두개의 플러�
 
 > **Tip:** VS code에서 scss 파일을 컴파일하여 css 파일이 생성되어지기 위해서 ** Live sass compiler ** 항상 켜두어야 한다.
 
-#### step 1) sass file 생성 ####
+#### step 1) <i class="icon-file"></i> sass file 생성 ####
 scss폴더를 만들고 .scss 파일을 만들어 스타일을 선언한다.
 
-#### step 2) html include ####
+#### step 2) <i class="icon-pencil"></i> html include ####                        
 
 ```
 <link rel="stylesheet" href="./css/base.css">
-
 ```
 
 ### JS ####
