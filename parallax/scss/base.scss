@@ -27,6 +27,7 @@ $font-s2 : 6.0rem;
     display:flex;
     align-items: center;
     text-align:center; 
+    font-weight:bold;
 }
 
 @mixin bg-style($bg-img) {
