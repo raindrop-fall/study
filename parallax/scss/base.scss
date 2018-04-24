@@ -3,33 +3,79 @@ $color1 : #000; //  $변수선언 : 반복적으로 많이 사용되는 부분 e
 $color2 : #4267b2;
 $color3 : #fff;
 
+$bg1 : url(../img/amusement-2456905_1920.jpg); 
+$bg2 : url(../img/umbrella-3345223_1920.jpg); 
+$bg3 : url(../img/photoshop-2845779_1920.jpg);
+
+
+
 $font-size : 62.5%;
 $font-style : "맑은 고딕","Malgun Gothic",'돋움',Dotum,AppleGothic,Tahoma,Helvetica,sans-serif;
 
 $font-s1 : 1.4rem;
-$font-s2 : 2.0rem;
+$font-s2 : 6.0rem;
 
-@mixin box-style($bg) { // mixins : 브라우져별 접두사를 처리하거나 반복적인 속성을 처리
+
+@mixin box-style($bg-color, $h:100vh)  { // mixins : 브라우져별 접두사를 처리하거나 반복적인 속성을 처리
     position:relative; 
-    background:$color1;
-    min-height:100%;
-    color:$color3;
+    background:$bg-color;
+    color:$bg-color;
     font-size:$font-s2;
+    text-align:center;
+    height: $h;
+    width:100%;
+    display:flex;
+    align-items: center;
+    text-align:center; 
 }
 
-@mixin trans-style() {
-
+@mixin bg-style($bg-img) {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment:fixed; // 중요!
+    background-size:cover; // 중요!
+    background-image:$bg-img;   
 }
 
 // style
 html {font-size:$font-size;}
-body { background:$color1; color:$color3; font-size:$font-s1; }
+body { color:$color3; font-size:$font-s1; margin:0; padding:0; }
+p { margin:0 auto; padding:0; }
 
-.scene-1 { 
-    @include box-style($color1);
+.wrap {     
+    height: 500px; 
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-perspective: 30.0rem;
+    perspective: 30.0rem;     
+
+    .scene-1 { 
+        @include box-style($color1);
+        @include bg-style($bg1);  
+        font-size:8.0rem;      
+        div {
+            position:fixed;
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            background:$color1;
+            opacity:0.2;
+        }
+    }
+    .scene-2 { 
+        @include box-style($color2);
+        @include bg-style($bg2);
+    }  
+    .scene-3 { 
+        @include box-style($color3);
+        @include bg-style($bg3);
     
-}
-.scene-2 { 
-    @include box-style($color2);
-
+    }  
+    .scene-d { 
+        @include box-style($color3, 30.0rem);        
+        //height:30.0rem;        
+        color:#000; 
+    }    
 }
