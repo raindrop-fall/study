@@ -1,6 +1,5 @@
 ;(function ($, win, doc, undefined) {     
-   
-    
+
     var $page = $('.paging'),
         docH = $(doc).innerHeight();
         $page.find('span').eq(0).css('background-color','red');
@@ -32,7 +31,8 @@
                 var value2 = value - scene3PosT,
                     op = value2 * 0.0009,
                     s3boxH = $('.scene-3').height(),
-                    s3boxHf = s3boxH / 2;
+                    s3boxHf = s3boxH / 2,
+                    endNum = value2 * 0.35;
 
                     console.log(value2 +','+ s3boxHf);
 
@@ -42,18 +42,15 @@
                     $('.scene-3').find('div').css({'opacity': op} );    
                 } 
                 if (op <= 0.7) { 
-                  if (value2 < 860 ) {
-                    $('.scene-3').find('p').css({'opacity': 1,'bottom': value2 } ); 
-                   } else if (value2 > 860 )  { 
-                    $('.scene-3').find('p').css({'opacity': 1,'bottom': value } ); 
-                   }
-                }                       
+                    $('.end-msg').css({'display':'block', 'bottom': endNum });
+                 
+
+                }   
             } else {
                 $('.scene-3').find('div').css({'opacity': 0} );    
+                $('.end-msg').css({'display':'none'});
             }
 
-
-       
     });
 
 
