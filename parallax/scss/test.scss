@@ -1,0 +1,96 @@
+// common..
+$color1 : #000; //  $변수선언 : 반복적으로 많이 사용되는 부분 ex) font style, color....
+$color2 : #1c3048;
+$color3 : #fff;
+
+$bg1 : url(../img/bg_01.jpg); 
+$bg2 : url(../img/bg_02.jpg); 
+$bg3 : url(../img/umbrella-3345223_1920.jpg);
+
+$hot1 : url(../img/b_01.png) no-repeat;
+$hot2 : url(../img/b_02.png) no-repeat;
+$hot3 : url(../img/b_03.png) no-repeat;
+
+$font-size : 62.5%;
+$font-style : "맑은 고딕","Malgun Gothic",'돋움',Dotum,AppleGothic,Tahoma,Helvetica,sans-serif;
+
+$font-s1 : 1.4rem;
+$font-s2 : 6.0rem;
+
+
+@mixin box-style($bg-color, $h:100vh)  { // mixins : 브라우져별 접두사를 처리하거나 반복적인 속성을 처리
+    position:relative; 
+    width:100%;
+    height:$h;
+    display:flex;
+    align-items: center;
+    text-align:center; 
+    font-weight:bold;
+}
+
+@mixin bg-style($bg-img) {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment:fixed; // 중요!
+    background-size:cover; // 중요!
+    background-image:$bg-img;  
+    background-color:$color2;
+}
+
+@mixin txt-style($c) {
+    font-size:2.0rem;
+    strong { display:block; font-size:6.0rem; margin-bottom:1.0rem; }
+    opacity:0.8;
+    color:$c; 
+}
+
+
+// style
+html {font-size:$font-size;}
+body { color:$color3; font-size:$font-s1; margin:0; padding:0; }
+p { margin:0 auto; padding:0; }
+
+.wrap {    
+    position:relative; 
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-perspective: 30.0rem;
+    perspective: 30.0rem;     
+
+    .scene-1 { 
+        @include box-style($color1);
+        @include bg-style($bg1); 
+        background-position-y:0;
+        
+        p {
+        @include txt-style($color1);
+        }
+    }
+    .scene-2 { 
+        @include box-style($color2);
+        @include bg-style($bg2);
+        background-position-x:0;
+        height:150.0rem;
+        p {
+            @include txt-style($color3);
+        }
+        
+    }  
+    .scene-3 { 
+        @include box-style($color3);
+        @include bg-style($bg3);   
+        height:200.0rem; 
+        div { 
+            background: none; background-color: #010101; z-index: 2;  height: 100%; width: 100%; position: fixed; top:0; bottom: 0; left: 0; opacity: 0; z-index: 2
+        }
+        p { z-index:999; @include txt-style($color3); position:fixed; bottom:0; left:50%; margin-left:-250px;  width:500px; text-align:center; opacity:0;
+        }
+    }  
+    
+    
+   
+}
+
+.paging { position:fixed; right:10%; top:50%; width:20px; }
+.paging span { display:block; margin:5px 0; width:15px; height:15px; border-radius:50%; background:#fff;  }
+

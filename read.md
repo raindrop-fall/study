@@ -17,10 +17,6 @@ VScode 에서 sass를 사용하려면 sass, Live sass compiler 두개의 플러�
 
 - [sass](https://marketplace.visualstudio.com/items?itemName=robinbentley.sass-indented)
 - [Live sass compliler](https://marketplace.visualstudio.com/items?itemName=ritwickdey.live-sass)
-<div align=center>
-<span><img src="https://robinbentley.gallerycdn.vsassets.io/extensions/robinbentley/sass-indented/1.4.9/1523787844290/Microsoft.VisualStudio.Services.Icons.Default" width=50px height=50px></span>
-<span><img src="https://ritwickdey.gallerycdn.vsassets.io/extensions/ritwickdey/live-sass/1.3.0/1518981325878/Microsoft.VisualStudio.Services.Icons.Default" width=50px height=50px></span>
-</div>
 
 > **Tip:** VS code에서 scss 파일을 컴파일하여 css 파일이 생성되어지기 위해서 **Live sass compiler** 항상 켜두어야 한다.
 

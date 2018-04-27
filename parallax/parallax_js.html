@@ -7,17 +7,38 @@
 	  
 	<title>parallax</title>
 	
-	<link rel="stylesheet" href="./css/base.css">
-	
+	<link rel="stylesheet" href="./css/test.css">
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script> 
+	<script src="./js/jquery.easing.1.3.js"></script> 
 </head>
-<body>
+<body class="box">
 <section class="wrap">
-	<article class="scene-1"><p>Parallax scrolling</p></article>
-	<article class="scene-d"><p>with SASS</p></article>
-	<article class="scene-2"><p>vertical</p></article>
-	<article class="scene-d"><p>...</p></article>
-	<article class="scene-3"><p>End</p></article>
+	<article class="parallax scene-1">
+		<p>
+			<strong>Fade out elements before</strong>
+			This slide moves background image at a slower speed then the page scroll. <br>
+			This slide moves background image at a slower speed then the page scroll.
+		</p>
+	</article>
+	<article class="parallax scene-2">
+		<p>
+			<strong>Fade out elements before</strong>
+			This slide moves background image at a slower speed then the page scroll. <br>
+			This slide moves background image at a slower speed then the page scroll.
+		</p>
+	</article>	
+	<article class="parallax scene-3">
+		<div></div>
+		<p class="msg">
+				<strong>THE END</strong>
+				See you next time.
+			</p>
+	</article>	
+	
 </section>
+
+<div class="paging"><span></span><span></span><span></span></div>
+<script src="./js/common.js"></script>
 </body>
 </html>
 
