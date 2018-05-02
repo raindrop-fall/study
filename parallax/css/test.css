@@ -148,6 +148,21 @@ p {
   background: #fff;
 }
 
+.paging span.on {
+  background: red;
+  animation: itemAni 0.5s ease;
+  opacity: 1;
+}
+
+@keyframes itemAni {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .end-msg {
   font-size: 2.0rem;
   opacity: 0.8;

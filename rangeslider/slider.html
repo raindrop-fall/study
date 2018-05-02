@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+	<title>parallax</title>
+	
+	<link rel="stylesheet" href="./css/jquery-ui-slider-pips.css">
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/flick/jquery-ui.css">
+
+	<script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+	<script src="https://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+
+	<script src="./js/jquery-ui-slider-pips.js"></script>
+
+	
+	<style>
+		.slider-box { margin:50px 25px; }
+		.slider-box p { margin-top:30px;  height:30px; border:1px solid red; line-height:24px; }
+	</style>
+</head>
+<body>
+<div class="slider-box">
+	<div id="custom-labels-slider">
+		<div class="slider"></div>
+		</div>
+		<p id="exeCount1">1,000</p>
+		<p id="exeCount2">2,000</p>
+		<p id="exeCount3">55,000</p>
+		
+	</div>
+	<script src="./js/ui.plugins.js"></script>
+	<script src="./js/ui.common.js"></script>
+<script>
+	
+	
+	
+	
+</script>
+<script>
+		;(function($, win, doc, undefined) {
+			$(doc).ready(function(){
+				$(".slider")
+					.slider({ 
+						min: 0, 
+						max: 6, 
+						step: 1,
+						
+					})
+					.slider("pips", {
+						rest: "label"
+					})
+					.on("slidechange", function(e,ui) {
+						$plugins.uiCountStep({ id:'exeCount1', value: 5040252 });
+						$plugins.uiCountStep({ id:'exeCount2', value: 1140252 });
+						$plugins.uiCountStep({ id:'exeCount3', value: 340252 });
+					});
+
+				$plugins.uiCountStep({ id:'exeCount1', value: 5040252 });
+						$plugins.uiCountStep({ id:'exeCount2', value: 1140252 });
+						$plugins.uiCountStep({ id:'exeCount3', value: 340252 });
+			
+			});
+		})(jQuery, window, document);
+		</script>
+</body>
+</html>
+
+    

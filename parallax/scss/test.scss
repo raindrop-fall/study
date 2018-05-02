@@ -93,5 +93,10 @@ p { margin:0 auto; padding:0; }
 
 .paging { position:fixed; right:10%; top:50%; width:20px; }
 .paging span { display:block; margin:5px 0; width:15px; height:15px; border-radius:50%; background:#fff;  }
+.paging span.on { background:red; animation: itemAni 0.5s ease; opacity:1; }
+@keyframes itemAni{
+    0%{ opacity:0; }
+    100%{opacity:1; }
+}
 
 .end-msg { @include txt-style($color3); display:none; position:fixed; bottom:0; opacity:1; width:500px; margin-left:-250px; left:50%; text-align:center;  }

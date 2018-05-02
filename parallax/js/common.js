@@ -1,8 +1,8 @@
 ;(function ($, win, doc, undefined) {     
 
     var $page = $('.paging'),
-        docH = $(doc).innerHeight();
-        $page.find('span').eq(0).css('background-color','red');
+        docH = $(doc).innerHeight();        
+        $page.find('span').eq(0).addClass('on');
 
     $(window).scroll(function() {
         var value = $(window).scrollTop(), 
@@ -16,15 +16,15 @@
             if(value < scene2PosT) { // 장면 2 보다 작을때 
             $('.scene-1').css('background-position-y', 0 - s1bg); //  장면 1    
             $('.scene-1').find('p').css({'opacity': opNum - s1Txt, 'margin-top' : value } ); //  장면 1  
-            $page.find('span').css('background-color','white');
-            $page.find('span').eq(0).css('background-color','red');
+            $page.find('span').removeClass('on');
+            $page.find('span').eq(0).addClass('on');
             
             }
 
             if(value > scene2PosT && value < scene3PosT ) {      // 장면2보다 크고, 장면 3보다 작을때 
                 $('.scene-2').css('background-position-x', 0 - s2bg); //  장면 2 
-                $page.find('span').css('background-color','white');
-                $page.find('span').eq(1).css('background-color','red');                
+                $page.find('span').removeClass('on');
+                $page.find('span').eq(1).addClass('on');             
             } 
 
             if(value >= scene3PosT )  {   
@@ -36,8 +36,8 @@
 
                     console.log(value2 +','+ s3boxHf);
 
-                $page.find('span').css('background-color','white');
-                $page.find('span').eq(2).css('background-color','red');                     
+                $page.find('span').removeClass('on');
+                $page.find('span').eq(2).addClass('on');                    
                 if (op <= 1) {                  
                     $('.scene-3').find('div').css({'opacity': op} );    
                 } 
