@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+	<title>rolling text</title>
+	
+	<link rel="stylesheet" href="./css/base.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
+</head>
+<body>
+
+<script>
+	function calculator(op, num1, num2) {
+		var result = "";
+
+		switch(op){
+			case "+" :
+				result = num1 + num2;
+				break;
+			case "-" :
+				result = num1 - num2;
+				break;
+			case "*" : 
+				result = num1 * num2;
+				break;
+			case "/" :
+				result = num1 / num2;
+				break;
+			default :
+				result = "지원하지 않는 연산자 입니다.";
+
+		}
+		return result;
+	}
+
+	document.write("1 결과 = " + calculator("+",20,10),"<br>");
+	document.write("2 결과 = " + calculator("-",20,10),"<br>");
+	document.write("3 결과 = " + calculator("*",20,10),"<br>");
+	document.write("4 결과 = " + calculator("/",20,10),"<br>");
+	document.write("5 결과 = " + calculator("%",20,10),"<br>");
+</script>
+
+</body>
+</html>
+
+    

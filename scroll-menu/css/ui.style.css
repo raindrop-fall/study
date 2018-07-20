@@ -1,0 +1,24 @@
+#wrap #contents .main_sec { min-height:400px; margin:0 auto; }
+.ui_content_sec { overflow:hidden; }
+
+.snb_wrap {overflow:hidden;position:relative;width:100%;height:40px;border-top:1px solid #d7d7d7;box-shadow:0 1px 2px rgba(0,0,0,.2)}
+#wrap.fixed .snb_wrap {overflow:hidden;position:fixed;z-index:65;top:44px;left:0;width:100%;height:40px;box-shadow:0 1px 2px rgba(0,0,0,.2)}
+
+.snb_wrap .m_snb {position:relative;background:#fff;overflow:hidden;}
+.snb_wrap .m_snb ul {display:table;width:100px; }
+.snb_wrap .m_snb ul li {display:table-cell;padding-right:1px;vertical-align:top; }
+.snb_wrap .m_snb ul li a {position:relative;display:block;width:100%;height:auto;white-space:nowrap;}
+.snb_wrap .m_snb ul li:first-child a:before {content:none;display:none;}
+.snb_wrap .m_snb ul li a:before {content:'';display:block;position:absolute;top:50%;left:-1px;width:1px;height:10px;margin-top:-5px;background:#dedede;}
+.snb_wrap .m_snb ul li .text {position:relative;display:inline-block;padding:13px 15px 11px;color:#303030;font-size:16px;line-height:100%;text-align:center;}
+.snb_wrap .m_snb ul li .text:after {content:'';position:absolute;left:0;bottom:2px;display:none;width:100%;height:2px;background:#f05000;}
+.snb_wrap .m_snb ul li .text.ico:after {content:none;display:none;}
+
+.snb_wrap .m_snb ul li .text.ico {display:inline-block;width:15px;height:13px;margin:13px 15px 11px;padding:0;background:url('//static11.samsungcard.com/wcms/personal/images/main_u/bg_ico_link_m_170628.png') no-repeat -75px 0;background-size:300px 300px;}
+.snb_wrap .m_snb ul li.on .text.ico {background-position:-100px 0;}
+
+.snb_wrap .m_snb ul li.on a {position:relative; background-color:#f05000;}
+.snb_wrap .m_snb ul li.on .text {color:#fff;}
+.snb_wrap .m_snb ul li.on .text:after {display:block;}
+
+.ui_content_item { float:left; }

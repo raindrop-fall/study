@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+	<title>rolling text</title>
+	
+	<link rel="stylesheet" href="./css/base.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<style>
+		.image-container { position:relative; border:1px solid #000; height:500px; }
+		.image-container img { position:absolute; top:0; left:0; width:120px;}
+	</style>
+</head>
+<body>
+	<div class="image-container" id="container1">
+		<img src="../img/189933667.jpg" alt="">
+		<img src="../img/bn_579x323.jpg" alt="">
+		<img src="../img/bn_main_579x323.jpg" alt="">
+	</div>
+
+<script>
+	var $images = null;
+
+	$(document).ready( function() {
+		$images = $("#container1 img");
+
+		showGallery(5,150,150);
+
+		function showGallery(count,width, height) {
+			
+		}
+
+	});
+</script>
+
+</body>
+</html>
+
+    

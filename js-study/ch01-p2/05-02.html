@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	  
+	<title>rolling text</title>
+	
+	<link rel="stylesheet" href="./css/base.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
+</head>
+<body>
+
+<script>
+	function sample() {
+		var sum = 0,
+			count = 1;
+		
+		while(true) {
+			var value = parseInt(window.prompt("수 입력", 1));
+
+			if(value == 0) {
+				document.write("종료합니다.");
+				return;
+			}
+
+			sum += value;
+
+			document.write(count + ". " + sum + "<br>");
+			count++;
+		}
+
+		document.write("총 "+count+"번 실행했습니다.");
+	}
+	sample();3100
+</script>
+
+</body>
+</html>
+
+    
