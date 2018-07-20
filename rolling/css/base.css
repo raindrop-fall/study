@@ -1,0 +1,10 @@
+.rolling-txt { overflow:hidden; position:relative; border:1px solid red; line-height:50px; height:50px;  }
+.rolling-txt span { display:block; }
+.rolling-txt dt, .rolling-txt dd { display:inline-block; vertical-align:top; }
+.rolling-txt dt { padding-left:10px; font-weight:bold;  }
+.rolling-txt dd { position:relative; }
+.rolling-txt dd .tipItem { visibility: hidden}
+.rolling-txt dd .tipItem.clone { display: none; position: absolute; top: 0; visibility: visible; transition: all .8s ease-in-out; }
+.rolling-txt dd .tipItem.clone.current { display: block; top: 0;  }
+.rolling-txt dd .tipItem.clone.prev { display: block; top: -70px; }
+.rolling-txt dd .tipItem.clone.next { display: block; top: 70px; }

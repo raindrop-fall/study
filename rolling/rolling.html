@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	  
+	<title>rolling text</title>
+	
+	<link rel="stylesheet" href="./css/base.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
+</head>
+<body>
+<section class="wrap">
+	<dl class="rolling-txt">
+		<dt>Tip!</dt>
+		<dd>
+			<span class="tipItem">111</span>
+			<span class="tipItem">2222222</span>
+			<span class="tipItem">333333</span>
+			<span class="tipItem">4444</span>
+			<span class="tipItem">55555</span>
+		</dd>
+	</dl>
+</section>
+<script src="./js/ui.common.js"></script>
+<script>
+;(function ($, win, doc, undefined) {	
+	setTimeout(function(){
+		rollingTxt();
+	}, 100);
+})(jQuery, window, document);
+</script>
+
+</body>
+</html>
+
+    
