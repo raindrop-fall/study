@@ -416,3 +416,227 @@ PERSON.LAYER = function(el) {
 
     }
 };
+
+var hc_scrollFixTop = {
+	prev      : 0,		// 이전 스크롤값
+	curr      : 0,		// 현재 스크롤값
+	dir       : 0,		// 스크롤된 방향 (위: 1, 아래: -1)
+	gap       : 0,		// header 및 tit영역의 높이 합계
+	// 여기까지의 값은 모두 Y 좌표임.
+	touching  : false,	// 터치시작부터 터치종료 이전까지 true
+	activated : false,	// 실행되었는 지 여부
+	elem      : null,	// 실행 대상 element 객체(jquery object)
+	elLen     : 0,		// 대상 element 수량
+	options: {
+		selector  : '.hc-fix-top',		// jquery(css) selector
+		header    : true,				// 헤더(GNB영역) 사용 여부 (default: true)
+		headerHt  : 55,					// 헤더 영역의 높이값
+		pageTit   : true,				// 고정되는 페이지제목 제공 여부 (default: true, 검색페이지 등에서 제공되지 않음)
+		titHt     : 50,					// 페이지제목 영역의 높이값
+		search    : false,				// 검색결과페이지의 검색영역(default: false - 검색결과페이지에서만 사용)
+		srchHt    : 55
+	},
+	eventsOff: function() {
+		$(window).off('scroll.ft');
+		$(document).off('touchstart.ft touchmove.ft touchend.ft');
+	},
+	events: function() {
+		var $this = this;
+		$this.prev = $(window).scrollTop();
+		// check scrolled down/up/none
+		$(window).off('scroll.ft').on('scroll.ft', function(e) {
+			if ( !$this.touching ) {	// touch하고 있지 않을 때만 실행.
+				$this.curr = $(window).scrollTop();
+				var currY = $(window).scrollTop();
+				if ( $this.prev > $this.curr ) { // scrolled to top
+					$this.dir = 1;
+				} else if ( $this.prev < $this.curr ) { // scrolled to bottom
+					$this.dir = -1;
+				} else { // didn't scrolled...
+					$this.dir = 0;
+				}
+				$this.move();
+				setTimeout( function() {
+					$this.prev = currY;
+				},10);
+			}
+		});
+		if ( !window.navigator.userAgent.toLowerCase().match(/ipad|iphone/) ) {		// iphone, ipad인 경우만 touch event 실행
+		}
+		$(document).off('touchstart.ft touchmove.ft touchend.ft');	// off events
+		$(document).on('touchstart.ft', function(e) {
+			$this.touching = true;
+			$(this).on('touchmove.ft', function(ev) {
+				if ( $('.search_input2 .input_area #query').is(':focus') ) {	// 검색박스 클릭
+					ev.preventDefault(); return false;
+				}
+				$this.curr = $(window).scrollTop();
+				var tmpCurr = $(window).scrollTop();
+				if ( $this.prev > $this.curr ) { // scrolled to top
+					$this.dir = 1;
+				} else if ( $this.prev < $this.curr ) { // scrolled to bottom
+					$this.dir = -1;
+				} else { // didn't scrolled...
+					$this.dir = 0;
+				}
+				$this.move();
+				setTimeout( function() {
+					$this.prev = tmpCurr;
+				},10);
+			});
+
+			$(this).on('touchend.ft', function(eve) {
+				setTimeout( function() {
+					$this.touching = false;
+					$(this).off('touchmove.ft touchend.ft');
+					setTimeout( function() {
+						$this.move();
+					},10);
+				},1);
+			});
+		});
+		$this.move();
+	},
+	move: function(forceDir) {
+		var $this = this;
+		var cy = $this.curr;
+		if ( typeof forceDir == 'string' ) {
+			$this.dir = forceDir=='up' ? 1 : -1;
+			cy = forceDir=='up' ? cy-10 : cy+10;
+		}
+		var dir = $this.dir;
+		if ( cy >= document.body.scrollHeight-$(window).height()-50 ) {	// 페이지 최하단일 경우 동작하지 않도록(50px 여유)
+			return false;
+		}
+		if ( !!$this.options.header ) {
+			$this.gap = $this.options.headerHt + $this.options.titHt;
+			var _topGab = $this.options.headerHt;
+			var _mainNotice = false;
+			if ( $('body').hasClass('main') && $('.main_notice').length>0 && $('.main_notice').is(':visible') && $('.main_notice').hasClass('open') ) {		// 메인 공지 열려있을 경우
+				_topGab = $this.options.headerHt + $('.main_notice.open').outerHeight();
+				_mainNotice = true;
+			};
+			if ( cy >= _topGab ) {  // 스크롤이 헤더 영역 이상일 경우
+				$('#wrap').addClass('hc-fix-header-fixed');
+				if ( dir==1 ) {		// 위로 스크롤할때 show
+					$('#wrap').removeClass('hc-fix-header-hide');
+				} else if ( dir==-1 ) {		// 아래로스크롤할때 hide
+					$('#wrap').addClass('hc-fix-header-hide');
+					$this.gap = $this.options.titHt;
+				}
+			} else if ( cy<=0 ) {	// 스크롤값이 0 이하일때 고정 풀기
+				$('#wrap').removeClass('hc-fix-header-fixed').removeClass('hc-fix-header-hide');
+				$this.gap = $this.options.titHt;
+			} else {				// 스크롤이 헤더 영역 안쪽일 경우 아무 동작하지 않음..
+				if ( cy <= $('.main_notice.open').outerHeight() && !!_mainNotice ) {
+					$('#wrap').removeClass('hc-fix-header-fixed').removeClass('hc-fix-header-hide');
+					$this.gap = $this.options.titHt;
+				}
+			}
+
+
+			if($('body').attr('id') == "hcFixPage")
+				$('#wrap').removeClass('hc-fix-header-fixed').removeClass('hc-fix-header-hide');
+		}
+		$this.elem.each( function() {
+			if ( cy+$this.gap<=this.originY ) {
+				$this.fix(this,false);
+			} else {
+				$this.fix(this,true);
+			}
+		});
+	},
+	fix: function(el,flag) {
+		var $this = this;
+		$this.gap = $this.dir>0 ? $this.options.headerHt + $this.options.srchHt + $this.options.titHt : $this.options.titHt;
+		if($('.area_tit').height() > 50) {
+			$this.gap = $this.gap+20;
+		}
+		el.originY = !$(el).parent('.hc-fix-addwrap').hasClass('hc-fix-fixed') ? $(el).offset().top : el.originY;
+		var top = el.originY;
+		if ( flag ) {
+			$(el).parent('.hc-fix-addwrap').addClass('hc-fix-fixed');
+			$(el).css('top', ($this.gap+el.originT)+'px');
+		} else {
+			$(el).parent('.hc-fix-addwrap').removeClass('hc-fix-fixed');
+			$(el).css('top', el.originCssTop+'px');
+		}
+	},
+	run: function(opt) {
+		// opt에서 selector, header 여부, header 높이값, pagetitle 여부, pagetitle height 등을 별도로 정할 수 있음
+		var $this = this;
+        $this.reset();
+        console.log('xxx');
+		if ( typeof opt == 'object' ) { $.extend( this.options, opt ); }
+		this.elem = $(this.options.selector);
+		this.elLen = this.elem.length;
+		this.options.headerHt = this.options.header  ? this.options.headerHt : 0;
+		this.options.titHt    = this.options.pageTit ? this.options.titHt : 0;
+		this.options.srchHt   = this.options.search  ? this.options.srchHt : 0;
+		if ( !!this.options.pageTit && !!this.options.titHt ) {
+			$('#container').addClass('hc-fix-hastit');
+		}
+		this.gap = $this.options.headerHt + $this.options.titHt + $this.options.srchHt;
+		var htSum = 0;
+		$('html').addClass('hc-fix-activated');
+		this.elem.each( function(i) {
+			this.originY = $(this).offset().top;
+			this.originCssTop = $(this).position().top;
+			this.outerHt = $(this).outerHeight();
+			this.originT = htSum;
+			this.maxT = htSum+$(this).outerHeight();
+			htSum = this.maxT;
+			if ( !$(this).parent().hasClass('hc-fix-addwrap') ) {
+				$(this).wrap('<div class="hc-fix-addwrap"></div>');
+			}
+			$(this).parent('.hc-fix-addwrap').css('height',$(this).outerHeight(true));
+		});
+		this.events();
+	},
+	refresh: function() {
+		this.run('refresh');	// to be developed...
+	},
+	disable: function() {
+		this.eventsOff();
+	},
+	enable: function() {
+		this.events();
+	},
+	setOption: function(opt) {
+		if ( typeof opt == 'object' ) {
+			$.extend( this.options, opt );
+		}
+
+	},
+	reset: function() {
+		var $this = this;
+		$('html').removeClass('hc-fix-activated');
+		$('#container').removeClass('hc-fix-hastit');
+		$(this.options.selector).each( function() {
+			if ( $(this).parent().hasClass('hc-fix-addwarp') ) {
+				$(this).unwrap();
+			}
+			$(this).css('top',this.originCssTop+'px');
+		});
+		$this.eventsOff();
+		$.extend( this, {
+			prev      : 0,
+			curr      : 0,
+			dir       : 0,
+			gap       : 0,
+			touching  : false,
+			activated : false,
+			elLen     : 0,
+			options: {
+				selector  : '.hc-fix-top',
+				header    : true,
+				headerHt  : 55,
+				pageTit   : true,
+				titHt     : 50,
+				search    : false,
+				srchHt    : 55
+			}
+		});
+	}
+};
+// end of hc_scrollFixTop
