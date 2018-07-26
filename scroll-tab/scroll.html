@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+	<title>scroll-nav</title>
+	
+	<script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+	<script src="https://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>	
+	
+	<link rel="stylesheet" href="./resources/css/base.css">
+	
+</head>
+<body>
+<div id="wrap">
+	<div id="header">
+		<h1 class="logo">
+			<a href="/index.jsp" omni-click="TOPMENU:현대카드">현대카드</a>
+		</h1>
+		<a class="btn_search" href="#none">검색</a>
+		<a class="btn_gnbMenu" href="#none">
+			<span class="slice1"></span>
+			<span class="slice2"></span>
+			<span class="slice3"></span>
+		</a>
+	</div>
+	<div class="area-content">
+		<div class="fix-addwrap">
+			<div class="area-scroll">
+				<ul class="list_tit snb_accross">
+					<li class="ov"><a id="idSnbAccross_2" href="#tabContent_2">상품요약소개</a></li>
+					<li class="ov"><a id="idSnbAccross_3" href="#tabContent_3">Invitation Only</a></li>
+					<li class="ov"><a id="idSnbAccross_4" href="#tabContent_4">바우처</a></li>
+					<li class="ov"><a id="idSnbAccross_5" href="#tabContent_5">컨시어지</a></li>
+					<li class="ov"><a id="idSnbAccross_6" href="#tabContent_6">리워드</a></li>
+					<li class="ov"><a id="idSnbAccross_7" href="#tabContent_7">대한항공형</a></li>
+					<li class="ov"><a id="idSnbAccross_8" href="#tabContent_8">아시아나형</a></li>
+					<li class="ov"><a id="idSnbAccross_9" href="#tabContent_9">M포인트형</a></li>
+					<li class="ov"><a id="idSnbAccross_10" href="#tabContent_10">프리미엄서비스</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="card-info section-menu-1">
+			<div class="area-card-module-1">
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="gnbMenu-area">
+	<div class="bg"></div>
+	<div class="top_bar">
+		<div class="left_area">
+			<a id="btn_login" class="btn_login" href="#none" omni-click="TOPMENU:로그인">로그인</a>
+		</div>
+		<a class="btn_join" href="/cpm/mb/CPMMB0201_01.hc" omni-click="TOPMENU:회원가입">회원가입</a>
+	</div>
+	<div class="menu-area">
+		<ul id="gnb">
+			<li class="dep01 n01 on">
+				<a href="#" class="dep01">My Account</a>
+				<div clss="submenu_div has_scroll">
+					<a href="#" class="tit"><strong>My Account</strong></a>
+					<ul>
+						<li>
+							<strong class="group_tit">이용내역</strong>
+							<ul class="dep02"><li><a id="menu_010101" class="dep02" href="#" omni-click="GNB:이용대금명세서">이용대금명세서</a></li><li><a id="menu_010102" class="dep02" href="#" omni-click="GNB:이용대금명세서(예정)">이용대금명세서(예정)</a></li><li><a id="menu_010103" class="dep02" href="#" omni-click="GNB:이용한도">이용한도</a></li><li><a id="menu_010104" class="dep02" href="#" omni-click="GNB:카드이용내역">카드이용내역</a></li><li><a id="menu_010105" class="dep02" href="#" omni-click="GNB:포인트/마일리지/할인/캐시백">포인트/마일리지/할인/캐시백</a></li><li><a id="menu_010106" class="dep02" href="#" omni-click="GNB:유료상품가입정보">유료상품 가입정보</a></li></ul>
+						</li>
+						<li>
+							<strong class="group_tit">이용대금 결제신청</strong>
+							<ul class="dep02"><li><a id="menu_010101" class="dep02" href="#" omni-click="GNB:이용대금명세서">이용대금명세서</a></li><li><a id="menu_010102" class="dep02" href="#" omni-click="GNB:이용대금명세서(예정)">이용대금명세서(예정)</a></li><li><a id="menu_010103" class="dep02" href="#" omni-click="GNB:이용한도">이용한도</a></li><li><a id="menu_010104" class="dep02" href="#" omni-click="GNB:카드이용내역">카드이용내역</a></li><li><a id="menu_010105" class="dep02" href="#" omni-click="GNB:포인트/마일리지/할인/캐시백">포인트/마일리지/할인/캐시백</a></li><li><a id="menu_010106" class="dep02" href="#" omni-click="GNB:유료상품가입정보">유료상품 가입정보</a></li></ul>
+						</li>
+						<li>
+							<strong class="group_tit">생활요금 납부서비스</strong>
+							<ul class="dep02"><li><a id="menu_010101" class="dep02" href="#" omni-click="GNB:이용대금명세서">이용대금명세서</a></li><li><a id="menu_010102" class="dep02" href="#" omni-click="GNB:이용대금명세서(예정)">이용대금명세서(예정)</a></li><li><a id="menu_010103" class="dep02" href="#" omni-click="GNB:이용한도">이용한도</a></li><li><a id="menu_010104" class="dep02" href="#" omni-click="GNB:카드이용내역">카드이용내역</a></li><li><a id="menu_010105" class="dep02" href="#" omni-click="GNB:포인트/마일리지/할인/캐시백">포인트/마일리지/할인/캐시백</a></li><li><a id="menu_010106" class="dep02" href="#" omni-click="GNB:유료상품가입정보">유료상품 가입정보</a></li></ul>
+						</li>
+						<li>
+							<strong class="group_tit">생활요금 납부서비스</strong>
+							<ul class="dep02"><li><a id="menu_010101" class="dep02" href="#" omni-click="GNB:이용대금명세서">이용대금명세서</a></li><li><a id="menu_010102" class="dep02" href="#" omni-click="GNB:이용대금명세서(예정)">이용대금명세서(예정)</a></li><li><a id="menu_010103" class="dep02" href="#" omni-click="GNB:이용한도">이용한도</a></li><li><a id="menu_010104" class="dep02" href="#" omni-click="GNB:카드이용내역">카드이용내역</a></li><li><a id="menu_010105" class="dep02" href="#" omni-click="GNB:포인트/마일리지/할인/캐시백">포인트/마일리지/할인/캐시백</a></li><li><a id="menu_010106" class="dep02" href="#" omni-click="GNB:유료상품가입정보">유료상품 가입정보</a></li></ul>
+						</li>
+						<li>
+							<strong class="group_tit">생활요금 납부서비스</strong>
+							<ul class="dep02"><li><a id="menu_010101" class="dep02" href="#" omni-click="GNB:이용대금명세서">이용대금명세서</a></li><li><a id="menu_010102" class="dep02" href="#" omni-click="GNB:이용대금명세서(예정)">이용대금명세서(예정)</a></li><li><a id="menu_010103" class="dep02" href="#" omni-click="GNB:이용한도">이용한도</a></li><li><a id="menu_010104" class="dep02" href="#" omni-click="GNB:카드이용내역">카드이용내역</a></li><li><a id="menu_010105" class="dep02" href="#" omni-click="GNB:포인트/마일리지/할인/캐시백">포인트/마일리지/할인/캐시백</a></li><li><a id="menu_010106" class="dep02" href="#" omni-click="GNB:유료상품가입정보">유료상품 가입정보</a></li></ul>
+						</li>
+					</ul>
+				</div>
+			</li>
+			<li class="dep01 n02">
+				<a href="#" class="dep01">카드 안내/신청</a>
+				<div clss="submenu_div has_scroll">
+					<a href="#" class="tit"><strong>카드안내/신청</strong></a>
+					<ul>
+						<li>
+							<strong class="group_tit">이용내역</strong>
+							<ul class="dep02"><li><a id="menu_010101" class="dep02" href="#" omni-click="GNB:이용대금명세서">이용대금명세서</a></li><li><a id="menu_010102" class="dep02" href="#" omni-click="GNB:이용대금명세서(예정)">이용대금명세서(예정)</a></li><li><a id="menu_010103" class="dep02" href="#" omni-click="GNB:이용한도">이용한도</a></li><li><a id="menu_010104" class="dep02" href="#" omni-click="GNB:카드이용내역">카드이용내역</a></li><li><a id="menu_010105" class="dep02" href="#" omni-click="GNB:포인트/마일리지/할인/캐시백">포인트/마일리지/할인/캐시백</a></li><li><a id="menu_010106" class="dep02" href="#" omni-click="GNB:유료상품가입정보">유료상품 가입정보</a></li></ul>
+						</li>
+						<li>
+							<strong class="group_tit">이용대금 결제신청</strong>
+							<ul class="dep02"><li><a id="menu_010101" class="dep02" href="#" omni-click="GNB:이용대금명세서">이용대금명세서</a></li><li><a id="menu_010102" class="dep02" href="#" omni-click="GNB:이용대금명세서(예정)">이용대금명세서(예정)</a></li><li><a id="menu_010103" class="dep02" href="#" omni-click="GNB:이용한도">이용한도</a></li><li><a id="menu_010104" class="dep02" href="#" omni-click="GNB:카드이용내역">카드이용내역</a></li><li><a id="menu_010105" class="dep02" href="#" omni-click="GNB:포인트/마일리지/할인/캐시백">포인트/마일리지/할인/캐시백</a></li><li><a id="menu_010106" class="dep02" href="#" omni-click="GNB:유료상품가입정보">유료상품 가입정보</a></li></ul>
+						</li>
+						<li>
+							<strong class="group_tit">생활요금 납부서비스</strong>
+							<ul class="dep02"><li><a id="menu_010101" class="dep02" href="#" omni-click="GNB:이용대금명세서">이용대금명세서</a></li><li><a id="menu_010102" class="dep02" href="#" omni-click="GNB:이용대금명세서(예정)">이용대금명세서(예정)</a></li><li><a id="menu_010103" class="dep02" href="#" omni-click="GNB:이용한도">이용한도</a></li><li><a id="menu_010104" class="dep02" href="#" omni-click="GNB:카드이용내역">카드이용내역</a></li><li><a id="menu_010105" class="dep02" href="#" omni-click="GNB:포인트/마일리지/할인/캐시백">포인트/마일리지/할인/캐시백</a></li><li><a id="menu_010106" class="dep02" href="#" omni-click="GNB:유료상품가입정보">유료상품 가입정보</a></li></ul>
+						</li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<script src="./resources/js/common.js"></script>
+<script src="./resources/js/publish.js"></script>
+</body>
+</html>
+
+    
